@@ -1,0 +1,21 @@
+@import "../styles/colors.scss";
+
+.container {
+  display: grid;
+  grid-template-areas: "header" "main";
+  gap: 3rem 0;
+
+  padding: 0 1rem;
+
+  .header {
+    grid-area: header;
+
+    display: flex;
+    align-items: center;
+    height: 5rem;
+  }
+
+  .main {
+    grid-area: main;
+  }
+}

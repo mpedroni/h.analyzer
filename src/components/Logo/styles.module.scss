@@ -1,0 +1,12 @@
+@import "../../styles/colors.scss";
+
+.logo {
+  letter-spacing: 0.2rem;
+
+  color: $secondary-color;
+  font-weight: bold;
+
+  span {
+    color: $primary-color;
+  }
+}

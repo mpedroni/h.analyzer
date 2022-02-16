@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Logo } from "../components/Logo";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -9,11 +10,11 @@ const Home: NextPage = () => {
         <title>h.analyzer</title>
       </Head>
 
-      <main className={styles.main}>
-        <header>
-          <h1 className={styles.title}>h.analyzer</h1>
-        </header>
-      </main>
+      <header className={styles.header}>
+        <Logo />
+      </header>
+
+      <main className={styles.main}>main</main>
     </div>
   );
 };
