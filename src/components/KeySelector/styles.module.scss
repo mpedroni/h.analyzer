@@ -1,0 +1,26 @@
+@import "../../styles/colors.scss";
+@import "../../styles/utils.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 2rem);
+  grid-template-rows: 2rem;
+  gap: 1rem;
+  justify-content: center;
+
+  button {
+    background: $gray-800;
+    box-shadow: $box-shadow;
+    border: none;
+    border-radius: 0.25rem;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    transition: background 0.2s;
+
+    &.active {
+      background: $primary-color;
+    }
+  }
+}

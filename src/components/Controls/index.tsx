@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 
 import { ButtonGroup, type Button } from "../ButtonGroup";
+import { KeySelector } from "../KeySelector";
 
 const enharmonicsButtons: Button[] = [
   { label: "b", value: "flat" },
@@ -24,6 +25,7 @@ export function Controls() {
   const [enharmonic, setEnharmonic] = useState("natural");
   const [chordScheme, setChordScheme] = useState("triads");
   const [chordType, setChordType] = useState("major");
+  const [activeKey, setActiveKey] = useState("C");
 
   return (
     <section className={styles.container}>
@@ -43,6 +45,11 @@ export function Controls() {
         buttons={chordTypes}
         activeButton={chordType}
         onClickButton={(chordTypeValue) => setChordType(chordTypeValue)}
+      />
+
+      <KeySelector
+        activeKey={activeKey}
+        onSelectKey={(keyCode) => setActiveKey(keyCode)}
       />
     </section>
   );
