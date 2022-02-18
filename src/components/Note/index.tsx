@@ -16,6 +16,7 @@ interface NoteProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   small?: boolean;
   flat?: boolean;
+  clickable?: boolean;
   text?: "body" | "heading";
 }
 
@@ -40,12 +41,19 @@ export function Note({
   small = false,
   flat = false,
   text = "heading",
+  clickable = false,
+  ...props
 }: NoteProps) {
   const className = classNames(styles.note, getNoteColorScheme(color), {
     [styles.small]: small,
     [styles.flat]: flat,
     [styles.body]: text === "body",
+    [styles.clickable]: clickable,
   });
 
-  return <button className={className}>{note}</button>;
+  return (
+    <button {...props} className={className}>
+      {note}
+    </button>
+  );
 }

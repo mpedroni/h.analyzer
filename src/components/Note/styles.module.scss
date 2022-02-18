@@ -1,4 +1,4 @@
-@import "../../../styles/colors.scss";
+@import "../../styles/colors.scss";
 
 .note {
   display: flex;
@@ -15,6 +15,8 @@
 
   font-size: 1rem;
   font-weight: bold;
+
+  transition: background 0.2s;
 
   &.primary {
     background: $primary-color;
@@ -45,5 +47,9 @@
 
   &.body {
     color: $body-color;
+  }
+
+  &.clickable {
+    cursor: pointer;
   }
 }

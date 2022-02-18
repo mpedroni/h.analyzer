@@ -1,6 +1,6 @@
 import { FiArrowDown } from "react-icons/fi";
 
-import { Note } from "./Note";
+import { Note } from "../Note";
 
 import styles from "./styles.module.scss";
 

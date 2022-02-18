@@ -1,4 +1,5 @@
 import { naturalKeys } from "../../utils/keys";
+import { Note } from "../Note";
 
 import styles from "./styles.module.scss";
 
@@ -11,13 +12,13 @@ export function KeySelector({ activeKey, onSelectKey }: KeySelectorProps) {
   return (
     <nav className={styles.container}>
       {naturalKeys.map((key) => (
-        <button
+        <Note
           key={key.code}
-          className={key.code === activeKey ? styles.active : ""}
+          note={key.code}
           onClick={() => onSelectKey(key.code)}
-        >
-          {key.code}
-        </button>
+          clickable
+          color={key.code === activeKey ? "primary" : ""}
+        />
       ))}
     </nav>
   );
