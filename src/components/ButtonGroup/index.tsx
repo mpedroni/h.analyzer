@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 export type Button = {
   label: string;
   value: string;
+  disabled?: boolean;
   flex?: number;
 };
 
@@ -23,6 +24,7 @@ export function ButtonGroup({
         <button
           key={button.value}
           onClick={() => onClickButton(button.value)}
+          disabled={button.disabled}
           className={`${activeButton === button.value ? styles.active : ""}`}
           style={{
             flex: button.flex ?? 1,

@@ -9,12 +9,12 @@ import { ScaleSelector } from "../ScaleSelector";
 
 const chordSchemeButtons: Button[] = [
   { label: "tríades", value: "triads" },
-  { label: "tétrades", value: "tetrads" },
+  { label: "tétrades", value: "tetrads", disabled: true },
 ];
 
 const chordTypes: Button[] = [
   { label: "maior", value: "major" },
-  { label: "menor", value: "minor" },
+  { label: "menor", value: "minor", disabled: true },
 ];
 
 interface ControlsProps {
@@ -43,6 +43,7 @@ export function Controls({
       Object.values(SCALES_VARIANTS).map(({ code, value }) => ({
         label: code,
         value,
+        disabled: code !== "natural",
       })),
     []
   );
