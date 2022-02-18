@@ -8,11 +8,15 @@ import { Controls } from "../components/Controls";
 import { HarmonicField } from "../components/HarmonicField";
 import { Logo } from "../components/Logo";
 
+import { SCALES_VARIANTS, ScaleVariant } from "../utils/scales";
+
 const Home: NextPage = () => {
-  const [enharmonic, setEnharmonic] = useState("natural");
+  const [scaleVariant, setScaleVariant] = useState<ScaleVariant>(
+    SCALES_VARIANTS.natural
+  );
   const [chordScheme, setChordScheme] = useState("triads");
   const [chordType, setChordType] = useState("major");
-  const [activeScale, setActiveKey] = useState("C");
+  const [activeScale, setActiveKey] = useState("");
 
   return (
     <div className={styles.container}>
@@ -27,19 +31,19 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Controls
           activeScale={activeScale}
+          scaleVariant={scaleVariant}
           chordScheme={chordScheme}
           chordType={chordType}
-          enharmonic={enharmonic}
           onSetActiveScale={setActiveKey}
           onSetChordScheme={setChordScheme}
           onSetChordType={setChordType}
-          onSetEnharmonic={setEnharmonic}
+          onSetScaleVariant={setScaleVariant}
         />
 
         {!!activeScale ? (
           <HarmonicField activeKey={activeScale} />
         ) : (
-          <span>Selecione um tom para ver seu campo harmômico</span>
+          <span>Selecione uma escala para ver seu campo harmômico</span>
         )}
       </main>
     </div>

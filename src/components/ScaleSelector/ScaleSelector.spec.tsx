@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 
 import { ScaleSelector } from ".";
-import { NATURAL_SCALES } from "../../utils/notes";
+import { NATURAL_SCALES } from "../../utils/scales";
 
 describe("ScaleSelector component", () => {
   it("should renders correctly", () => {

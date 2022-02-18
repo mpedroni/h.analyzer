@@ -1,4 +1,4 @@
-import { NATURAL_SCALES } from "../../utils/notes";
+import { NATURAL_SCALES } from "../../utils/scales";
 import { Note } from "../Note";
 
 import styles from "./styles.module.scss";

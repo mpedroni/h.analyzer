@@ -1,13 +1,11 @@
+import { useMemo } from "react";
+
+import { SCALES_VARIANTS, type ScaleVariant } from "../../utils/scales";
+
 import styles from "./styles.module.scss";
 
 import { ButtonGroup, type Button } from "../ButtonGroup";
 import { ScaleSelector } from "../ScaleSelector";
-
-const enharmonicsButtons: Button[] = [
-  { label: "b", value: "flat" },
-  { label: "natural", value: "natural", flex: 2 },
-  { label: "#", value: "sharp" },
-];
 
 const chordSchemeButtons: Button[] = [
   { label: "tríades", value: "triads" },
@@ -20,32 +18,49 @@ const chordTypes: Button[] = [
 ];
 
 interface ControlsProps {
-  enharmonic: string;
+  scaleVariant: ScaleVariant;
   chordScheme: string;
   chordType: string;
   activeScale: string;
-  onSetEnharmonic: (enharmonic: string) => void;
+  onSetScaleVariant: (scaleVariant: ScaleVariant) => void;
   onSetChordScheme: (chordScheme: string) => void;
   onSetChordType: (chordType: string) => void;
   onSetActiveScale: (activeScale: string) => void;
 }
 
 export function Controls({
-  enharmonic,
+  scaleVariant,
   chordScheme,
   chordType,
   activeScale,
   onSetActiveScale,
   onSetChordScheme,
   onSetChordType,
-  onSetEnharmonic,
+  onSetScaleVariant,
 }: ControlsProps) {
+  const scalesVariantsButtons: Button[] = useMemo(
+    () =>
+      Object.values(SCALES_VARIANTS).map(({ code, value }) => ({
+        label: code,
+        value,
+      })),
+    []
+  );
+
+  function handleScaleVariantSelect(scaleVariantCode: string) {
+    const scaleVariant = Object.values(SCALES_VARIANTS).find(
+      ({ value }) => value === scaleVariantCode
+    );
+
+    onSetScaleVariant(scaleVariant as ScaleVariant);
+  }
+
   return (
     <section className={styles.container}>
       <ButtonGroup
-        buttons={enharmonicsButtons}
-        activeButton={enharmonic}
-        onClickButton={(enharmonicValue) => onSetEnharmonic(enharmonicValue)}
+        buttons={scalesVariantsButtons}
+        activeButton={scaleVariant.value}
+        onClickButton={handleScaleVariantSelect}
       />
 
       <ButtonGroup
