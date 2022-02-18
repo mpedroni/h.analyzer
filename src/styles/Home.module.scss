@@ -2,23 +2,29 @@
 
 .container {
   display: grid;
+  grid-template-columns: repeat(7, 2rem);
   grid-template-areas: "header" "main";
-  gap: 3rem 0;
+  justify-content: center;
+  gap: 3rem 1rem;
 
-  padding: 0 1rem;
+  padding: 0.5rem 1rem 0;
 
   .header {
     grid-area: header;
 
+    grid-column: span 7;
+
     display: flex;
     align-items: center;
-    height: 5rem;
+    height: 3rem;
   }
 
   .main {
     grid-area: main;
+    grid-column: span 7;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 3rem 1rem;
   }
 }

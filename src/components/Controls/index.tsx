@@ -21,35 +21,50 @@ const chordTypes: Button[] = [
   { label: "menor", value: "minor" },
 ];
 
-export function Controls() {
-  const [enharmonic, setEnharmonic] = useState("natural");
-  const [chordScheme, setChordScheme] = useState("triads");
-  const [chordType, setChordType] = useState("major");
-  const [activeKey, setActiveKey] = useState("C");
+interface ControlsProps {
+  enharmonic: string;
+  chordScheme: string;
+  chordType: string;
+  activeKey: string;
+  onSetEnharmonic: (enharmonic: string) => void;
+  onSetChordScheme: (chordScheme: string) => void;
+  onSetChordType: (chordType: string) => void;
+  onSetActiveKey: (activeKey: string) => void;
+}
 
+export function Controls({
+  enharmonic,
+  chordScheme,
+  chordType,
+  activeKey,
+  onSetActiveKey,
+  onSetChordScheme,
+  onSetChordType,
+  onSetEnharmonic,
+}: ControlsProps) {
   return (
     <section className={styles.container}>
       <ButtonGroup
         buttons={enharmonicsButtons}
         activeButton={enharmonic}
-        onClickButton={(enharmonicValue) => setEnharmonic(enharmonicValue)}
+        onClickButton={(enharmonicValue) => onSetEnharmonic(enharmonicValue)}
       />
 
       <ButtonGroup
         buttons={chordSchemeButtons}
         activeButton={chordScheme}
-        onClickButton={(chordSchemaValue) => setChordScheme(chordSchemaValue)}
+        onClickButton={(chordSchemaValue) => onSetChordScheme(chordSchemaValue)}
       />
 
       <ButtonGroup
         buttons={chordTypes}
         activeButton={chordType}
-        onClickButton={(chordTypeValue) => setChordType(chordTypeValue)}
+        onClickButton={(chordTypeValue) => onSetChordType(chordTypeValue)}
       />
 
       <KeySelector
         activeKey={activeKey}
-        onSelectKey={(keyCode) => setActiveKey(keyCode)}
+        onSelectKey={(keyCode) => onSetActiveKey(keyCode)}
       />
     </section>
   );
