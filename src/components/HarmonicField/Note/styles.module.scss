@@ -1,0 +1,49 @@
+@import "../../../styles/colors.scss";
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $gray-800;
+
+  height: 2rem;
+  width: 2rem;
+  border-radius: 0.25rem;
+  padding: 0;
+  border: none;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  &.primary {
+    background: $primary-color;
+  }
+
+  &.secondary {
+    background: $secondary-color;
+  }
+
+  &.tertiary {
+    background: $tertiary-color;
+  }
+
+  &.gray-700 {
+    background: $gray-700;
+  }
+
+  &.small {
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+  }
+
+  &.flat {
+    background: none;
+  }
+
+  &.body {
+    color: $body-color;
+  }
+}
