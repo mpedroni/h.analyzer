@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const [enharmonic, setEnharmonic] = useState("natural");
   const [chordScheme, setChordScheme] = useState("triads");
   const [chordType, setChordType] = useState("major");
-  const [activeKey, setActiveKey] = useState("C");
+  const [activeScale, setActiveKey] = useState("C");
 
   return (
     <div className={styles.container}>
@@ -26,18 +26,18 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Controls
-          activeKey={activeKey}
+          activeScale={activeScale}
           chordScheme={chordScheme}
           chordType={chordType}
           enharmonic={enharmonic}
-          onSetActiveKey={setActiveKey}
+          onSetActiveScale={setActiveKey}
           onSetChordScheme={setChordScheme}
           onSetChordType={setChordType}
           onSetEnharmonic={setEnharmonic}
         />
 
-        {!!activeKey ? (
-          <HarmonicField activeKey={activeKey} />
+        {!!activeScale ? (
+          <HarmonicField activeKey={activeScale} />
         ) : (
           <span>Selecione um tom para ver seu campo harmômico</span>
         )}

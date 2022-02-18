@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 import styles from "./styles.module.scss";
 
 import { ButtonGroup, type Button } from "../ButtonGroup";
-import { KeySelector } from "../KeySelector";
+import { ScaleSelector } from "../ScaleSelector";
 
 const enharmonicsButtons: Button[] = [
   { label: "b", value: "flat" },
@@ -25,19 +23,19 @@ interface ControlsProps {
   enharmonic: string;
   chordScheme: string;
   chordType: string;
-  activeKey: string;
+  activeScale: string;
   onSetEnharmonic: (enharmonic: string) => void;
   onSetChordScheme: (chordScheme: string) => void;
   onSetChordType: (chordType: string) => void;
-  onSetActiveKey: (activeKey: string) => void;
+  onSetActiveScale: (activeScale: string) => void;
 }
 
 export function Controls({
   enharmonic,
   chordScheme,
   chordType,
-  activeKey,
-  onSetActiveKey,
+  activeScale,
+  onSetActiveScale,
   onSetChordScheme,
   onSetChordType,
   onSetEnharmonic,
@@ -62,9 +60,9 @@ export function Controls({
         onClickButton={(chordTypeValue) => onSetChordType(chordTypeValue)}
       />
 
-      <KeySelector
-        activeKey={activeKey}
-        onSelectKey={(keyCode) => onSetActiveKey(keyCode)}
+      <ScaleSelector
+        activeScale={activeScale}
+        onSelectScale={(keyCode) => onSetActiveScale(keyCode)}
       />
     </section>
   );
