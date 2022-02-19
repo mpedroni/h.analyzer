@@ -1,18 +1,18 @@
-import { FiArrowDown } from "react-icons/fi";
 import { MAJOR_HARMONIC_FIELDS } from "../../utils/harmonicFields";
 
 import { SCALE_DEGREES } from "../../utils/scales";
 
 import { Note } from "../Note";
+import { Chord } from "./Chord";
 
 import styles from "./styles.module.scss";
 
 interface HarmonicFieldProps {
-  activeKey: string;
+  scaleCode: string;
 }
 
-export function HarmonicField({ activeKey }: HarmonicFieldProps) {
-  if (!MAJOR_HARMONIC_FIELDS[activeKey])
+export function HarmonicField({ scaleCode }: HarmonicFieldProps) {
+  if (!MAJOR_HARMONIC_FIELDS[scaleCode])
     return <span>Campo harmônico não encontrado</span>;
 
   return (
@@ -23,21 +23,8 @@ export function HarmonicField({ activeKey }: HarmonicFieldProps) {
         ))}
       </div>
 
-      {MAJOR_HARMONIC_FIELDS[activeKey].map((chord) => (
-        <div key={chord.code + "_chord"} className={styles.chord}>
-          <Note
-            note={chord.code}
-            color={chord.code === activeKey ? "secondary" : "tertiary"}
-          />
-
-          <FiArrowDown />
-
-          <div className={styles.notes}>
-            {chord.notes.map((note: string) => (
-              <Note key={note + "_note"} note={note} small color="gray-700" />
-            ))}
-          </div>
-        </div>
+      {MAJOR_HARMONIC_FIELDS[scaleCode].map((chord) => (
+        <Chord chord={chord} key={chord.code + "_chord"} />
       ))}
     </section>
   );

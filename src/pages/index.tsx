@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         />
 
         {!!activeScale ? (
-          <HarmonicField activeKey={activeScale} />
+          <HarmonicField scaleCode={activeScale} />
         ) : (
           <span>Selecione uma escala para ver seu campo harmômico</span>
         )}

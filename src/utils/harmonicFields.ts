@@ -27,7 +27,9 @@ import {
 } from "./chords";
 import type { Chord } from "./chords";
 
-export const MAJOR_HARMONIC_FIELDS: Record<string, Chord[]> = {
+export type HarmonicField = Record<string, Chord[]>;
+
+export const MAJOR_HARMONIC_FIELDS: HarmonicField = {
   C: [C, Dm, Em, F, G, Am, B_HALF_DIM],
   D: [D, Em, F_SHARPm, G, A, Bm, C_SHARP_HALF_DIM],
   E: [E, F_SHARPm, G_SHARPm, A, B, C_SHARPm, D_SHARP_HALF_DIM],
