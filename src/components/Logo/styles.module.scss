@@ -1,13 +1,19 @@
 @import "../../styles/colors.scss";
 
-.logo {
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 0.2rem;
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
-  color: $secondary-color;
-  font-weight: bold;
+  .logo {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.2rem;
 
-  span {
-    color: $primary-color;
+    color: $secondary-color;
+    font-weight: bold;
+
+    span {
+      color: $primary-color;
+    }
   }
 }

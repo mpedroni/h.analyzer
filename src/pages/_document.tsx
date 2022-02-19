@@ -9,7 +9,7 @@ class MyDocument extends Document {
             name="description"
             content="Simple musical harmonic field analyzer"
           />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo.svg" />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
