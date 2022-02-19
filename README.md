@@ -2,7 +2,9 @@
 
 `h.analyzer` is a simple musical harmonic field analyzer built for study purposes (both frontend development and music theory).
 
-Built with Next.js, TypeScript, and TailwindCSS.
+The initial objective is to allow the user to select a scale and see the notes and chords that compose this scale
+
+`h.analyzer` was built with Next.js, TypeScript, and SCSS (CSS Modules).
 
 ## Project setup
 
