@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
 import styles from "../styles/Home.module.scss";
@@ -48,6 +48,13 @@ const Home: NextPage = () => {
       </main>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 60 * 60 * 24, // 1 day
+  };
 };
 
 export default Home;
