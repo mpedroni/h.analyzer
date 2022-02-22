@@ -7,17 +7,12 @@ import styles from "./styles.module.scss";
 
 interface ChordProps {
   chord: Chord;
-  active?: boolean;
 }
 
-export function Chord({ chord, active = false }: ChordProps) {
+export function Chord({ chord }: ChordProps) {
   return (
     <div key={chord.code + "_chord"} className={styles.chord}>
-      <Note
-        data-testid="chord"
-        note={chord.code}
-        color={active ? "secondary" : "tertiary"}
-      />
+      <Note data-testid="chord" note={chord.code} flat />
 
       <FiArrowDown />
 

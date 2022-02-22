@@ -25,10 +25,4 @@ describe("Chord component", () => {
     expect(getByTestId("chord")).not.toHaveTextContent(C.code);
     expect(getByTestId("chord")).toHaveTextContent(Gm.code);
   });
-
-  it("should apply `secondary` color scheme when the prop `active` is `true`", () => {
-    const { getByTestId } = render(<Chord chord={C} active />);
-
-    expect(getByTestId("chord")).toHaveClass("secondary");
-  });
 });
